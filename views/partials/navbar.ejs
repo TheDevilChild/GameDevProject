@@ -1,0 +1,145 @@
+<script src="/javascript/swiper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+	const currentUser = JSON.parse('<%-JSON.stringify(locals.currentUser)%>');
+</script>
+
+<div id="overlay"></div>
+<nav id="navbar">
+	<div id="nav-logo"> <img id="logo" src="/images/GIM-logos.jpeg"></div>
+	<ul id="nav-content">
+		<li class="page_links">
+			<a href="/">Home</a>
+		</li>
+		<li class="page_links">
+			<a href="/games">Games</a>
+		</li>
+		<li class="page_links">
+			<a href="/chats">Social</a>
+		</li>
+		<li class="page_links">
+			<a href="/users">Users</a>
+		</li>
+
+	</ul>
+	<% if(!currentUser) { %>
+		<form action="/login">
+			<button class="nav-btn">Sign In</button>
+		</form>
+		<form action="/register">
+			<button class="nav-btn nav-btn-selected">Sign Up</button>
+		</form>
+		<% } else { %>
+			<div id="nav-search">
+				<input type="text" placeholder="Search.." id="search" autocomplete="off">
+				<div id="modal-container">
+					<div class="modal" id="search-modal">
+						<!-- <div class="result-box">
+							<div class="result-container">
+								<div class="result-img-container">
+									<img src="images/IMG_20210704_090719 (1).jpg" alt="" class="result-img">
+								</div>
+								<div class="result-name">
+									<h3>Mukul Gupta</h3>
+								</div>
+								<div class="result-btn-container">
+									<button class="result-btn">Follow</button>
+								</div>
+							</div>
+							<hr>
+						</div>
+						<div class="result-box">
+							<div class="result-container">
+								<div class="result-img-container">
+									<img src="images/IMG_20210704_090719 (1).jpg" alt="" class="result-img">
+								</div>
+								<div class="result-name">
+									<h3>Mukul Gupta</h3>
+								</div>
+								<div class="result-btn-container">
+									<button class="result-btn">Follow</button>
+								</div>
+							</div>
+							<hr>
+						</div>
+						<div class="result-box">
+							<div class="result-container">
+								<div class="result-img-container">
+									<img src="images/IMG_20210704_090719 (1).jpg" alt="" class="result-img">
+								</div>
+								<div class="result-name">
+									<h3>Mukul Gupta</h3>
+								</div>
+								<div class="result-btn-container">
+									<button class="result-btn">Unfollow</button>
+								</div>
+							</div>
+							<hr>
+						</div>
+						<div class="result-box">
+							<div class="result-container">
+								<div class="result-img-container">
+									<img src="images/IMG_20210704_090719 (1).jpg" alt="" class="result-img">
+								</div>
+								<div class="result-name">
+									<h3>Mukul Gupta</h3>
+								</div>
+								<div class="result-btn-container">
+									<button class="result-btn">Unfollow</button>
+								</div>
+							</div>
+							<hr>
+						</div> -->
+					</div>
+				</div>
+			</div>
+			<!-- <form action="/logout"> -->
+			<div id="account-img">
+				<button id="account-popup" class="popup-btn" data-modal-target="#account-modal">
+					<img src="images/IMG_20210704_090719 (1).jpg" alt="account logo" id="account-logo"
+						class="logo account-logo">
+				</button>
+			</div>
+			<!-- <button class="nav-btn nav-btn-selected">Logout</button> -->
+			<!-- </form> -->
+			<div class="modal" id="account-modal">
+				<div id="account-info">
+					<div id="img-container">
+						<img src="images/IMG_20210704_090719 (1).jpg" alt="account-logo" class="logo account-logo"
+							id="account-logo-popup">
+					</div>
+					<h2 id="account-name"><%= currentUser.fullname %> </h2>
+					<h4 id="account-email"><%= currentUser.email %> </h4>
+				</div>
+				<ul id="link-btns">
+					<!-- <li class="popup-links">
+						<div class="link-container">
+							<a href="">Follwers</a>
+						</div>
+						<hr>
+					</li>
+					<li class="popup-links">
+						<div class="link-container">
+							<a href="">Following</a>
+						</div>
+						<hr>
+					</li> -->
+					<li class="popup-links">
+						<form action="/logout">
+							<div class="link-container">
+								<button class="nav-btn nav-btn-selected">
+									<!-- <a href="">Log Out</a> -->
+									Log Out
+								</button>
+							</div>
+						</form>
+					</li>
+				</ul>
+				<button data-close-button class="close-button">&times;</button>
+			</div>
+
+			<% } %>
+				<div id="searchResults"></div>
+</nav>
+
+<script src="javascript/navbar.js"></script>

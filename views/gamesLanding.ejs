@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="/stylesheet/navbar.css">
+        <link rel="stylesheet" href="/stylesheet/gameLanding.css">
+        <link rel="stylesheet" href="/stylesheet/swiper.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+
+    <body>
+        <div id="overlay"></div>
+        <%- include("partials/navbar") %>
+
+            <div id="big-box">
+                <div class="main-content">
+                    <div class="main-text">
+                        <h2>PLAY NOW FOR NEVER ENDING FUN</h2>
+                        <h4>Exeperience of offline games at your own home </h4>
+                    </div>
+                    <div class="swiper-container" id="swiper-box">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <button class="popup-btn" id="5row-popup" data-modal-target="#row-modal">
+                                    <div class="game-card ">
+                                        <div>
+                                            5 in a row
+                                        </div>
+                                        <div>
+                                            <img src="/images/Screenshot (1892).png" class="game-pic">
+                                        </div>
+                                        <div>
+                                            Connct 5 in any direction!
+                                            <div class="sub-info">
+                                                <div>Stars &#9733;&#9733;&#9733;&#9733;&#9734; </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="swiper-slide">
+                                <button class="popup-btn" id="uba-popup" data-modal-target="#uba-modal">
+                                    <div class="game-card ">
+                                        <div>
+                                            THE BIDDING GAME
+                                        </div>
+                                        <div>
+                                            <img src="/images/bill.png" class="game-pic">
+                                        </div>
+                                        <div>
+                                            Place the most unique bet!
+                                            <div class="sub-info">
+                                                <div>Stars &#9733;&#9733;&#9733;&#9734;&#9734; </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="modal-container">
+                <div class="modal" id="row-modal">
+                    <img src="images/game_banner.jpeg" alt="" class="game-img" id="uba-img">
+                    <div class="modal-content" id="uba-content">
+                        <div class="game-title" id="uba-title">
+                            <h1>5 in a Row</h1>
+                        </div>
+                        <div class="game-info-container" id="uba-info-container">
+                            <div class="players-num" id="uba-players-num">
+                                <img src="images/3699734.png" alt="" class="icon" id="player-icon">
+                                <span>2</span>
+                            </div>
+                            <div class="game-dur" id="uba-dur">
+                                <img src="images/109613.png" alt="" class="icon" id="clock-icon"> 5-10 min
+                            </div>
+                            <div class="difficulty" id="uba-difficulty">
+                                Difficulty: 4/5
+                            </div>
+                        </div>
+                        <div class="game-btn-container" id="uba-btn-container">
+                            <button class="create-game-btn">
+                                <a href="/createForm1">Create Game</a>
+                            </button>
+                            <button class="join-game-btn">
+                                <a href="/form1">Join Game</a>
+                            </button>
+                        </div>
+                        <div class="game-description" id="uba-description">
+                            This is a game of strategy.
+                        </div>
+                        <div class="game-rules" id="uba-rules">
+                            <h3 id="rules-title">Rules</h3>
+                            <ul>
+                                <li>
+                                    The game consists of 2 rounds. Players switch roles after the first round.
+                                </li>
+                                <li>
+                                    In each round, one player is Attacker and the other is Defender.
+                                </li>
+                                <li>
+                                    The objective of the Attacker is to get five counters of the same symbol in an
+                                    orthogonal or diagonal row. Defender aims to prevent this from happening.
+                                </li>
+                                <li>
+                                    A round ends if 5 symbols in a row are achieved or the grid is fully filled.
+                                </li>
+                                <li>
+                                    The attacker who manages to create a 5 in a row in fewer turns wins. In case both
+                                    the players are unable to achieve this, the player with the more 4 in a rows wins.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal" id="uba-modal">
+                    <img src="images/game_banner.jpeg" alt="" class="game-img" id="uba-img">
+                    <div class="modal-content" id="uba-content">
+                        <div class="game-title" id="uba-title">
+                            <h1>The Bidding Game</h1>
+                        </div>
+                        <div class="game-info-container" id="uba-info-container">
+                            <div class="players-num" id="uba-players-num">
+                                <img src="images/3699734.png" alt="" class="icon" id="player-icon">
+                                <span>3-10</span>
+                            </div>
+                            <div class="game-dur" id="uba-dur">
+                                <img src="images/109613.png" alt="" class="icon" id="clock-icon"> 5-20 min
+                            </div>
+                            <div class="difficulty" id="uba-difficulty">
+                                Difficulty: 3/5
+                            </div>
+                        </div>
+                        <div class="game-btn-container" id="uba-btn-container">
+                            <button class="create-game-btn">
+                                <a href="/createForm2">Create Game</a>
+                            </button>
+                            <button class="join-game-btn">
+                                <a href="/form2">Join Game</a>
+                            </button>
+                        </div>
+                        <div class="game-description" id="uba-description">
+                            This is a bidding game and requires a lot of strategy.
+                        </div>
+                        <div class="game-rules" id="uba-rules">
+                            <h3 id="rules-title">Rules</h3>
+                            <ul>
+                                <li>
+                                    The auction consists of 3 rounds.
+                                </li>
+                                <li>
+                                    In each round, you have to bid 3 integers between 1 and 30, both inclusive.
+                                </li>
+                                <li>
+                                    The player with the highest unique bid will score 50000 points.
+                                </li>
+                                <li>
+                                    The player with the lowest unique bid will score 25000 points.
+                                </li>
+                                <li>
+                                    The player with highest and/ or lowest unique bid will have to pay a fee equal to
+                                    1000*x points, where x is the average of the 3 bids placed by the player.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+            </div>
+
+            
+            <div id="searchResults"></div>
+            <script src="/javascript/gameLanding.js"></script>
+            <script src="/javascript/swiper.min.js"></script>
+
+    </body>
+
+</html>
+
+
+<!-- <div class="game-card ">
+    <div>
+        THE BIDDING GAME
+    </div>
+    <div>
+        <img src="bill.png" id="uba">
+    </div>
+    <div>
+        Place the most unique bet!
+        <div class="sub-info">
+            <div>Stars &#9733;&#9733;&#9733;&#9734;&#9734; </div>
+        </div>
+    </div>
+</div> -->

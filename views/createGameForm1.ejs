@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Create Game</title>
+        <link rel="stylesheet" href="/stylesheet/chatAndPlayers.css">
+        <link rel="stylesheet" href="/stylesheet/5InARow.css">
+        <link rel="stylesheet" href="/stylesheet/createAndJoinForm.css">
+        <style>
+            .centered-form__form {
+                /* display: flex;
+    justify-content: center;
+    align-items: center; */
+                position: absolute;
+                top: 30vh;
+                left: 40vw;
+            }
+        </style>
+    </head>
+
+    <body class="centered-form" id="sidebar">
+        <div class="centered-form__form">
+            <form action="/game" method="post" id="joinRoomForm">
+                <div class="form-field">
+                    <h3>Create Game</h3>
+                </div>
+                <div class="form-field">
+                    <label for="roomName">Room Name</label>
+                    <input type="text" name="roomName" autofocus>
+                </div>
+                <div class="form-field">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" autofocus>
+                </div>
+                <div class="form-field-hidden">
+                    <input type="radio" name="formDecision" value="1" checked="checked">
+                    <input type="radio" name="formDecision" value="0">
+                </div>
+                <div class="form-field">
+                    <button id="joinRoomBtn">Join</button>
+                </div>
+            </form>
+        </div>
+    </body>
+
+</html>

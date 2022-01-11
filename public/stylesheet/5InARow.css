@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Cabin+Condensed&family=Josefin+Sans&family=Lobster&family=Mochiy+Pop+P+One&family=Rubik&display=swap');
+
+
+body {
+    font-family:'Cabin Condensed';
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+  
+ input {
+    outline: none;
+    font-size: 1.0rem;
+    padding: 0 5px;
+  }
+  
+  controls-wrapper li {
+    padding: 10px 10px 10px 10px;
+  }
+  
+  canvas {
+    display: block;
+    margin: 10px auto;
+  }
+  
+ 
+  #events {
+    height: 150px;
+  }
+
+  .form-field-hidden{
+    display:none;
+  }
+  .hidden{
+    display: none;
+  }
+  #game_content .hidden{
+    display: none;
+  }
+
+  .disabled{
+    background-color: red;
+  }
+  .waitingScreen{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.753);
+    color: white;
+    z-index: 3;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+  }
+  .waitingScreenDisabled{
+    display: none;
+    z-index: -3;
+    width: 0;
+    height: 0;
+  }
+
+  #draw{
+    width:100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.753);
+    color: white;
+    z-index: 3;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+  }
+#win{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(59, 204, 144, 0.753);
+    color: white;
+    z-index: 3;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+#lose{
+  width: 100%;
+    height: 100%;
+    background-color: rgba(177, 40, 86, 0.753);
+    color: white;
+    z-index: 3;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+#return_to_home button{
+  font-family:'Cabin Condensed';
+  background-color: blanchedalmond;
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  margin: 10px;
+  font-weight: 700;
+  letter-spacing:1.5px;
+  font-size: 2rem;
+  padding: 2rem 3rem;
+}
+
+#return_to_home button:hover{
+    background-color: #61d43e;
+    color: blanchedalmond;
+    border: 0 solid #000000;
+}
+
+
+#win,#lose,#draw{
+  display: flex;
+  flex-direction: column;
+}
+
+#return_to_home{
+  margin-top: 40px;
+}
+
+
+
+*{
+  letter-spacing: 1.5;
+}
+li,
+ul {
+    list-style-position: inside
+}
+
+h3 {
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.5rem
+}
+
+#5InARow button,#forms button {
+    background: #265f82;
+    cursor: pointer;
+    transition: background .3s ease
+}
+
+#5InARow button:hover,#forms button:hover {
+    background: #1F4C69
+}
+
+#5InARow button:disabled,#forms button:disabled {
+    cursor: default;
+    background: #698ea5
+}
+
+.centered-form {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    /* background: -moz-linear-gradient(125deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(49, 84, 129, 1)), color-stop(100%, rgba(39, 107, 130, 1)));
+    background: -webkit-linear-gradient(125deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%);
+    background: -o-linear-gradient(125deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%);
+    background: -ms-linear-gradient(125deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%);
+    background: linear-gradient(325deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%) */
+    background-image: linear-gradient(to right bottom, #b16ab3, #a367bd, #8f66c8, #7266d2, #4568dc);
+}
+
+.centered-form__form {
+    background: rgba(250, 250, 250, .9);
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    padding: 0 20px;
+    margin: 20px;
+    width: 230px
+}
+
+.form-field {
+    margin: 20px 0
+    
+}
+
+.form-field>* {
+    width: 100%
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 7px
+}
+
+#joinRoomBtn{
+  /* background-image: linear-gradient(to right bottom, #b16ab3, #a367bd, #8f66c8, #7266d2, #4568dc); */
+  background-color: #7266d2;
+}
+
+.form-field input,
+.form-field select {
+    border: 1px solid #e1e1e1;
+    padding: 10px
+}
+
+
+#startGame{
+  width: 100px;
+  font-size: 20px;
+}
+
+#game_content{
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  justify-content: space-around;
+  position: relative;
+}
+#site_content{
+  display: flex;
+}
+
+#player_role_strip div{
+  /* display: flex; */
+  /* justify-content: space-around; */
+  padding: 50px;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+}
+
+#role_update{
+  font-size: 45px;
+  /* color: grey; */
+}
+
+.attacker{
+  color: red;
+}
+.defender{
+  color: blue;
+}
+
+
+/* 
+#player_role_strip #attacker{
+  color: red;
+  display: flex;
+  flex-direction: column;
+}
+
+#player_role_strip #attacker_text{
+  font-size: 40px;
+  font-weight: 700;
+}
+
+#player_role_strip #defender{
+  color: blue;
+  display: flex;
+  flex-direction: column; 
+}
+
+#player_role_strip #defender_text{
+  font-size: 40px;
+  font-weight: 700;
+}
+
+#defender #current_defender{
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  color: #698ea5;
+}
+
+#attacker #current_attacker{
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  color: #698ea5;
+} */
+
+
+#round_strip{
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+}
+

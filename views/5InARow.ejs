@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Game</title>
+        <link rel="stylesheet" href="/stylesheet/chatAndPlayers.css">
+        <link rel="stylesheet" href="/stylesheet/5InARow.css">
+        <link rel="stylesheet" href="/stylesheet/navbar.css">
+        <script>
+            const roomName = JSON.parse('<%-JSON.stringify(roomName)%>');
+            const password = JSON.parse('<%-JSON.stringify(password)%>');
+            const formDecision = JSON.parse('<%-JSON.stringify(formDecision)%>');
+            const UserUsername = JSON.parse('<%-JSON.stringify(username)%>');
+            const UserFullname = JSON.parse('<%-JSON.stringify(fullname)%>');
+            const UserEmail = JSON.parse('<%-JSON.stringify(email)%>');
+        </script>
+    </head>
+
+    <body id="5InARow">
+
+        <%- include('partials/navbar') %>
+
+        <div id="site_content">
+            <div id="game_content">
+                <div id="waitingScreen" class="waitingScreen">
+                    Waiting for the host to start the game
+                </div>
+                <div id="draw" class="hidden">
+                    Draw
+                    <form action="/" id="return_to_home">
+                        <button>Home</button>
+                    </form>
+                </div>
+                <div id="win" class="hidden">
+                    You Won!!
+                    <form action="/" id="return_to_home">
+                        <button>Home</button>
+                    </form>
+                </div>
+                <div id="lose" class="hidden">
+                    You Lost
+                    <form action="/" id="return_to_home">
+                        <button>Home</button>
+                    </form>
+                </div>
+                <div id="round_strip">
+                    Round 1
+                </div>
+                
+                <div id="player_role_strip">
+                    <div>
+                        You Are : <span id="role_update">???</span>
+                    </div>
+                </div>
+                <canvas height="400" width="400"></canvas>
+            </div>
+            <div id="sidebar">
+                <div class="chat__sidebar">
+                    <h3>Players</h3>
+                    <div id="users"></div>
+                </div>
+                <button id="startGame" class="hidden disabled" disabled>Start</button>
+                <div class="controls-wrapper">
+                    <ol id="messages" class="chat__messages"></ol>
+                    <div class="controls"></div>
+                    <div class="chat-wrapper">
+                        <form id="chat-form">
+                            <input type="text" id="chat" name="message" autocomplete="off" title="chat" autofocus />
+                            <button id="say">Say</button>
+                        </form>
+                    </div>
+                    <div id="users"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/javascript/moment.js"></script>
+        <script src="/javascript/5InARow.js"></script>
+    </body>
+
+</html>

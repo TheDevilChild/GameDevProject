@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="stylesheet" href="stylesheet/navbar.css">
+		<link rel="stylesheet" href="stylesheet/chat.css">
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script>
+			const currentUser = JSON.parse('<%-JSON.stringify(currentUser)%>');
+		</script>
+	</head>
+
+	<body>
+
+		<%- include('partials/navbar') %>
+
+			<div id="mainContent">
+				<div id="chatsList">
+					<h1>User List</h1>
+					<!-- <div class="user-info chat-list">
+						<img src="images/GIMLogo.jpeg" class="chat-list-img"></img>
+						<span class="chat-list-user">Name Of User</span>
+					</div> -->
+				</div>
+				<div id="chatContainer">
+					<div id="currentChatData">
+						<img id="chatIcon" class="currentChatData-icon" src="images/GIMLogo.jpeg"></img>
+						<h1 id="currentChatName">User</h1>
+					</div>
+					<h2 id="noMessageContainer" class="hidden">
+
+						<div>
+							<p>No Messages Here Yet..</p>
+						</div>
+						<!-- <div>Animation</div> -->
+						<div>Sent message to your new friend!</div>
+
+					</h2>
+					<div id="messageContainer">
+						<div class="message-container-received message-container">
+							<div class="message">
+								Heyyy!!!
+							</div>
+						</div>
+						<div class="message-container-sent message-container">
+							<div class="message">
+								Hiii!!!
+							</div>
+						</div>
+					</div>
+					<input type="text" id="messageContent" placeholder="Type a message here.." class="input-bar">
+					<div id="sendMessageBtn">
+						<span class="material-icons material-icons-outlined test">
+							send
+						</span>
+					</div>
+
+				</div>
+			</div>
+			<script src="/socket.io/socket.io.js"></script>
+			<script src="javascript/chat.js"></script>
+	</body>
+
+</html>

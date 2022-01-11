@@ -1,0 +1,230 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Lobster&family=Mochiy+Pop+P+One&family=Rubik&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li{
+    text-decoration: none;
+    list-style-type: none;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+}
+
+.hidden{
+    display: none;
+  }
+  #game_content .hidden{
+    display: none;
+  }
+  .disabled{
+    background-color: red;
+  }
+
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around;
+    align-items: center; */
+}
+
+#main-wrapper {
+    width: 75%;
+    justify-content: space-between;
+    position: relative;
+
+}
+
+.waitingScreen{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.753);
+    color: white;
+    z-index: 3;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+  }
+  .waitingScreenDisabled{
+    display: none;
+    z-index: -3;
+    width: 0;
+    height: 0;
+  }
+
+#game-wrapper, #rule-wrapper {
+    background-color: cornsilk;
+    border-radius: 20px;
+    margin: 20px;
+    box-shadow: 2px 2px gray;
+}
+
+#rule-wrapper {
+    padding: 15px 30px;
+}
+
+#rule-wrapper li {
+    list-style-type: disc;
+    font-size: 20px;
+    padding: 2px;
+}
+
+#menu-wrapper {
+    background-color: red;
+    width: 20%;
+}
+
+#game-name {
+    padding: 15px 10px;
+    text-align: center;
+}
+
+#second-layer {
+    justify-content: flex-start;
+    padding: 15px 40px;
+    font-size: 20px;
+}
+
+.bid-card {
+    background-color: brown;
+    width: 225px;
+    height: 270px;
+    margin: 30px;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.bid-img {
+    width: 60%;
+}
+
+.bid-input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 0 solid #e2e8f0;
+}
+
+.bid-button {
+    padding: 5px 20px;
+    border-radius: 7.5px;
+    border: 0 solid #e2e8f0;
+    cursor: pointer;
+    letter-spacing: 0.75px;
+}
+
+.bid-button:hover {
+    box-shadow: 2px 2px black;
+}
+
+#resultsBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#resultsBar button{
+    margin: 5px 30px;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.close-button {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-content {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+    cursor: initial;
+}
+
+#result-content {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#score-table {
+    margin: 20px;
+}
+
+#score-table td, th {
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+#score-table, #score-table th, #score-table td {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+#frequency-chart{
+    height: 300px;
+    width: 300px;
+}
+
+.info-btn{
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    color: white;
+    line-height: 25px;
+    background-color: #21b935;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 6px, rgba(0, 0, 0, 0.12) 0 1px 4px;
+    transition: all 150ms ease-in;
+    outline: none;
+}

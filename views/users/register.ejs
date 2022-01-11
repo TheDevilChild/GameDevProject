@@ -1,0 +1,87 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/register" method="post">
+        <label for="firstName">FirstName</label>
+        <input type="text" name="firstName" id="firstName"placeholder="First Name" required>
+
+        <label for="lastName">LastName</label>
+        <input type="text" name="lastName" id="laName"placeholder="Last Name" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Email" required>
+
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="Username" required>
+
+        <label for="password">password</label>
+        <input type="password" name="password" id="password" placeholder="Password" required>
+        <br>
+        <label for="profilePic">Picture</label>
+        <input type="text" name="profilePic" id="profilePic">
+        <br>
+        <button value="Submit">
+            Submit
+        </button>
+    </form>
+</body>
+</html>
+ -->
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/stylesheet/signup.css">
+    </head>
+
+    <body>
+        <div id="container">
+            <div id="container_text">
+                <h1 class="heading">Sign Up</h1>
+                <form id="form" method="post" action="/register">
+                    <div class="signup">
+                        <div class="form_group">
+                            <div class="form_group_elements">
+                                <label for="fullname">Name</label>
+                                <input type="text" id="fullname" name="fullname">
+                            </div>
+                            <div class="form_group_elements">
+                                <label for="email">Email</label>
+                                <input type="text" id="email" name="email">
+                            </div>
+                            <div  class="form_group_elements">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username">
+                            </div>
+                            <div  class="form_group_elements">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password">
+                            </div>
+
+                            <button  class="form_group_elements" id="btn" value="submit">Signup</button>
+                            <div  class="form_group_elements">
+                            Already have an account? <a href="/login" id="link">Login!</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="container_image">
+                <img id="img" src="/images/GIMLogo.jpeg">
+            </div>
+        </div>
+    </body>
+
+</html>

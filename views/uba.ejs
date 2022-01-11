@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/stylesheet/chatAndPlayers.css">
+        <link rel="stylesheet" href="/stylesheet/uba.css">
+        <link rel="stylesheet" href="/stylesheet/navbar.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const roomName = JSON.parse('<%-JSON.stringify(roomName)%>');
+            const password = JSON.parse('<%-JSON.stringify(password)%>');
+            const formDecision = JSON.parse('<%-JSON.stringify(formDecision)%>');
+            const UserUsername = JSON.parse('<%-JSON.stringify(username)%>');
+            const UserFullname = JSON.parse('<%-JSON.stringify(fullname)%>');
+            const UserEmail = JSON.parse('<%-JSON.stringify(email)%>');
+        </script>
+    </head>
+    <body>
+        <div id="overlay"></div>
+        <%- include('partials/navbar') %>
+        <div id="resultsBar">
+            <button id="roundResultBtn1" class=" info-btn" data-modal-target = "#round-1-result">Round 1</button>
+            <button id="roundResultBtn2" class="hidden info-btn" data-modal-target = "#round-2-result">Round 2</button>
+            <button id="roundResultBtn3" class="hidden info-btn" data-modal-target = "#round-3-result">Round 3</button>
+            <button id="gameResult" class="hidden info-btn" data-modal-target = "#game-result-modal">Results</button>
+        </div>
+        <div id="outer-wrapper" class="flexRow">
+            <div id="main-wrapper" class="flexColumn">
+                <div id="waitingScreen" class="waitingScreen">
+                    Waiting for the host to start the game
+                </div>
+                <div id="game-wrapper" class="flexColumn">
+                    <div id="game-name" class="flexRow">
+                        <h1>Unique Bid Auction</h1>    
+                    </div>
+                    <div id="second-layer" class="flexRow">
+                        <div id="round-number">
+                            <span>Round</span>
+                            <span id="round-num">1</span>
+                        </div>
+                    </div>
+                    <div id="main-content" class="flexRow">
+                        <div id="bid-1" class="bid-card flexColumn">
+                            <img src="/images/bidding.png" alt="bid" class="bid-img">
+                            <input type="number" name="bid-1" id="bid1-input" class="bid-input">
+                            <button class="bid-button" id="bid1-btn">BID</button>
+                        </div>
+                        <div id="bid-2" class="bid-card flexColumn">
+                            <img src="/images/bidding.png"alt="bid" class="bid-img">
+                            <input type="number" name="bid-2" id="bid2-input" class="bid-input">
+                            <button class="bid-button" id="bid2-btn">BID</button>
+                        </div>
+                        <div id="bid-3" class="bid-card flexColumn">
+                            <img src="/images/bidding.png" alt="bid" class="bid-img">
+                            <input type="number" name="bid-3" id="bid3-input" class="bid-input">
+                            <button class="bid-button" id="bid3-btn">BID</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="rule-wrapper">
+                    <h1>Rules</h1>
+                    <ul>
+                        <li>
+                            The auction consists of 3 rounds.
+                        </li>
+                        <li>
+                            In each round, you have to bid 3 integers between 1 and 30, both inclusive.
+                        </li>
+                        <li>
+                            The player with the highest unique bid will score 50000 points.
+                        </li>
+                        <li>
+                            The player with the lowest unique bid will score 25000 points.
+                        </li>
+                        <li>
+                            The player with highest and/ or lowest unique bid will have to pay a fee equal to 1000*x points,
+                            where x is the average of the 3 bids placed by the player.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="sidebar">
+                <div class="chat__sidebar">
+                    <h3>Players</h3>
+                    <div id="users"></div>
+                </div>
+                <button id="startGame" class="hidden disabled" disabled>Start</button>
+                <div class="controls-wrapper">
+                    <ol id="messages" class="chat__messages"></ol>
+                    <div class="controls"></div>
+                    <div class="chat-wrapper">
+                        <form id="chat-form">
+                            <input type="text" id="chat" name="message" autocomplete="off" title="chat" autofocus />
+                            <button id="say">Say</button>
+                        </form>
+                    </div>
+                    <div id="users"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal-container">
+            <div class="modal" id="round-1-result">
+                <div id="result-content">
+                    <div id="score-table-container">
+                        <table id="score-1-table">
+                            <tr id="head-row">
+                                <th>Player</th>
+                                <th>Score</th>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div id="frequency-chart">
+                        <canvas id="round-1-freq" height="200" width="200"></canvas>
+                    </div>
+                </div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+            <div class="modal" id="round-2-result">
+                <div id="result-content">
+                    <div id="score-table-container">
+                        <table id="score-2-table">
+                            <tr id="head-row">
+                                <th>Player</th>
+                                <th>Score</th>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                    <div id="frequency-chart">
+                        <canvas id="round-2-freq" height="200" width="200"></canvas>
+                    </div>
+                </div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+            <div class="modal" id="round-3-result">
+                <div id="result-content">
+                    <div id="score-table-container">
+                        <table id="score-3-table">
+                            <tr id="head-row">
+                                <th>Player</th>
+                                <th>Score</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="frequency-chart">
+                        <canvas id="round-3-freq" height="200" width="200"></canvas>
+                    </div>
+                </div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+            <div class="modal" id="game-result-modal">
+                <div id="result-content">
+                    <div id="frequency-chart">
+                        <canvas id="game-over-freq" height="200" width="200"></canvas>
+                    </div>
+                </div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+        </div>
+
+
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/javascript/moment.js"></script>
+        <script src="/javascript/uba.js"></script>
+    </body>
+</html>

@@ -1,0 +1,121 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Lobster&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    background-image: url("../images/backgroundLogin.jpg");
+    /* background-repeat: no-repeat; */
+    background-size: contain;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+#container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+#container_image #img{
+    height: 150%;
+    width: 100%;
+    border-radius: 15px;
+}
+
+#container_text, #container_image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    padding: 15px;
+    min-height: 400px;
+    color: black;
+    background-color: #F3F0D7;
+    border-radius: 20px;
+    font-family: 'lobster';
+    font-family: 'Balsamiq Sans';
+    background-image: linear-gradient(to left bottom, #b16ab3, #a367bd, #8f66c8, #7266d2, #4568dc);
+}
+
+#container_image{
+    background-image: linear-gradient(to right bottom, #b16ab3, #a367bd, #8f66c8, #7266d2, #4568dc);
+}
+@media(max-width: 800px) {
+    #container_image{
+        display: none;
+    }
+}
+
+
+.form_group input{
+    display: block;
+    padding: 5px;
+    font-size: 12px;
+    width: 100%;
+    font-weight: 500;
+}
+
+.form_group{
+    display: flex;
+    flex-direction: column;
+}
+.form_group_elements{
+    margin-bottom: 12px;
+}
+
+
+#btn{
+  background-color: #fff;
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  font-size: .5rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: .3rem .6rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  user-select: none;
+}
+
+#btn:hover {
+  background-color: #61d43e;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  #btn{
+    font-size: 1rem;
+    padding: .4rem .8rem;
+    width: 6rem;
+  }
+}
+
+.heading{
+    margin-bottom: 30px;
+}
